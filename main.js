@@ -1,13 +1,11 @@
-hide = true;
 function sayHello(){
-	if (hide == true){
-		document.getElementById('kartinka').src = 'https://media.kg-portal.ru/anime/t/tokyoghoul/trailers/19643t.jpg'
-		hide = false;
+	let i=0;
+	let div = document.getElementById('content');
+	while(i<10){
+		let img = document.createElement('img');
+		img.src = 'https://donatepay.ru/uploads/notification/images/405143_1611512491.gif';
+		div.appendChild(img);
+		i+=1;
 	}
-	else {
-		document.getElementById('kartinka').src = '';
-		hide = true
-	}
-
 
 }
