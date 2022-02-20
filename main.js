@@ -1,11 +1,18 @@
+let id = 1;
 function sayHello(){
-	let i=0;
-	let div = document.getElementById('content');
-	while(i<10){
-		let img = document.createElement('img');
-		img.src = 'https://donatepay.ru/uploads/notification/images/405143_1611512491.gif';
-		div.appendChild(img);
-		i+=1;
-	}
+	let table = document.getElementById('tbl');
+	let name = document.getElementById('name').value;
+	let tr = document.createElement('tr');
+	let td1 = document.createElement('td');
+	let td2 = document.createElement('td');
+	
+	td1.textContent = id;
+	td2.textContent = name;
+	tr.appendChild(td1);
+	tr.appendChild(td2);
+	table.appendChild(tr);
+
+	id+=1;
+	
 
 }
