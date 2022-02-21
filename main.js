@@ -1,10 +1,29 @@
-let students = [
-{id: 1, name: 'andrey', surname:'artamonov'},
-{id: 2, name: 'daria', surname:'arhipova'},
-{id: 3, name: 'nicolai', surname:'barkalov'},
-{id: 4, name: 'georgiy', surname:'bochkarev'},
-{id: 5, name: 'matvei', surname:'gavrilov'}
-]
+let students = []
+let id_current = 0
+
+// загружаем файл с сайта
+function load_from_site(){
+//1. Создаем новый XMLHttpRequest-объект
+	let xhr = new XMLHttpRequest();
+// 2. Настраиваем его: GET-запрос по URL http://217.71.129.139:4035/students.php
+	xhr.open('GET', 'http://217.71.129.139:4035/students.php');
+//3.Отсылаем запрос
+	xhr.send();
+//4.Сработает после того, как мы получим огтвет от сервера
+	xhr.onload = function(){
+		if (xhr.status != 200){
+			alert(`Error ${xhr.status}: ${xhr.statusText}`); // например 404: Not Found
+		}
+		else{
+			students = JSON.parse(xhr.responseText)['response']
+		}
+	};
+	xhr.onerror = function(){
+		alert('запрос не удался');
+	};
+}
+
+
 
 function load_all() {
 	let table = document.getElementById('tbl_all')
@@ -30,15 +49,26 @@ function load_all() {
 		table.appendChild(tr)
 	}
 }
-let id_current = 0
+//let id_current = 0
 function load_student(id){
+	let img = document.getElementById('logo')
+	img.src = 'http://217.71.129.139:4035/'+ students[id].logo
 	let head = document.getElementById('zagolovok')
 	head.textContent = 'Info about student № '+ students[id].id
-
 	let span1 = document.getElementById('name')
 	span1.textContent = students[id_current].name
 	let span2 = document.getElementById('surname')
 	span2.textContent = students[id_current].surname
+
+	let scores = document.getElementById('scores')
+	let sum = 0;
+	for(let i = 0; i < students[id].scores.length; i++){
+		console.log(students[id].scores[i])
+		sum+=students[id].scores[i]
+	}
+	scores.textContent = students[id].scores
+	//let sred = document.getElementById('sred')
+	sred.textContent = sum/(students[id].scores.length)
 }
 
 function Next(){
@@ -63,3 +93,4 @@ function Prev()	{
 	}
 	load_student(id_current)
 }
+
