@@ -1,9 +1,16 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en">
+<head >
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>More info</title>
 	<script src="main.js"></script>
 </head>
-<body>
-
+<body onload="load_student(0)">
+<h1 id="zagolovok"></h1>
+<span class="title">Name:</span><span id="name" class="val"></span><br>
+<span class="title">Surname:</span><span id="surname" class="val"></span><br>
+<button id="btn_prev" onclick="Prev()" disabled="">Prev</button>
+<button id="btn_next" onclick="Next()">Next</button>
 </body>
 </html>
