@@ -2,7 +2,7 @@ img{
 	height: 100px;
 }
 body{
-	background: #F754E1;
+	background: #b8a2b4;
 }
 span{
 	color: #771A99;
@@ -11,7 +11,7 @@ span{
 }
 button{
 	height: 50px; 
-	width: 80px;
+	width: 110px;
 	margin: 30px;
 
 	font-size: 20px;
@@ -23,15 +23,12 @@ h1{
 	font-size: 80px;
 	font-family: Comic Sans MS;
 }
-a{  font-family: Snell Roundhand, cursive	;
+a{  font-family: Arial;
 	font-size: 20px;
-	display: block;	
+	display: block;
 }
 a:link {
 	color: red;
-}
-a:visited {
-	color: #771A99;
 }
 a:hover {
 	color: #ABDEAE;
